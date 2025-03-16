@@ -1,0 +1,38 @@
+# Required Libraries for Drone Project
+
+## Arduino Libraries
+1. Wire (Built-in with Arduino IDE) - For I2C communication
+2. RemoteXY (v3.1.8 or later) - For remote control interface
+   Download from: https://remotexy.com/en/library/
+3. MPU6050 (by Electronic Cats, v1.0.0 or later) - For gyroscope/accelerometer control
+   Install via Arduino Library Manager
+
+## Installation Instructions
+
+### Method 1: Arduino Library Manager
+1. Open Arduino IDE
+2. Go to Sketch > Include Library > Manage Libraries
+3. Search for and install:
+   - "MPU6050" by Electronic Cats
+
+### Method 2: Manual Installation
+1. Download the library ZIP files:
+   - RemoteXY: https://remotexy.com/en/library/
+   - MPU6050: https://github.com/ElectronicCats/mpu6050
+2. In Arduino IDE, go to Sketch > Include Library > Add .ZIP Library
+3. Select the downloaded ZIP files
+
+## Verifying Installation
+To verify that libraries are correctly installed:
+1. Open Arduino IDE
+2. Go to File > Examples
+3. You should see "RemoteXY" and "MPU6050" in the examples list
+
+## Configuration Notes
+1. The MPU6050 library requires the Wire library (automatically included)
+2. RemoteXY library requires serial communication (configured in the code)
+3. Make sure library versions are compatible with your Arduino IDE version
+
+## Additional Resources
+- MPU6050 Documentation: https://github.com/ElectronicCats/mpu6050
+- RemoteXY Documentation: https://remotexy.com/en/help/ 

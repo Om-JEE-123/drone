@@ -1,0 +1,88 @@
+# RemoteXY Configuration for Drone Control
+
+This document explains how to set up the RemoteXY app for your drone.
+
+## Steps to Configure RemoteXY
+
+1. Download the RemoteXY app from Google Play Store
+2. Open the app and create a new interface
+3. Add the following control elements according to the layout below:
+
+### Interface Elements
+
+1. **Arm Switch**
+   - Type: Switch
+   - Position: Top left
+   - Size: 22x11
+   - Variable name: arm_switch
+
+2. **Calibrate Switch**
+   - Type: Switch
+   - Position: Top right
+   - Size: 22x11
+   - Variable name: calibrate_switch
+
+3. **Throttle Joystick**
+   - Type: Joystick (Y-axis only)
+   - Position: Middle left
+   - Size: 40x40
+   - Variable name: throttle_joystick
+
+4. **Yaw/Rotation Joystick**
+   - Type: Joystick (X-axis only)
+   - Position: Middle right
+   - Size: 40x40
+   - Variable name: yaw_joystick
+
+5. **Pitch/Roll Joystick**
+   - Type: Joystick (both axes)
+   - Position: Bottom center
+   - Size: 30x30
+   - Variable name for X: roll_joystick
+   - Variable name for Y: pitch_joystick
+
+6. **Labels**
+   - Add labels for: "Throttle", "Yaw", "Pitch", "Roll"
+
+## Alternative Method
+
+If you prefer not to create the interface manually, you can import the configuration data from the Arduino code. In the RemoteXY app:
+
+1. Select "Import"
+2. Choose "From Arduino code"
+3. Copy and paste the following configuration array from the drone.ino file:
+
+```
+// RemoteXY configurate  
+uint8_t RemoteXY_CONF[] =   // 138 bytes
+  { 255,5,0,0,0,131,0,16,31,1,
+  2,0,68,25,22,11,2,26,31,31,
+  79,78,0,79,70,70,0,4,0,18,
+  49,12,12,2,26,2,0,68,9,22,
+  11,2,26,31,31,79,78,0,79,70,
+  70,0,5,0,5,60,40,40,2,26,
+  31,5,0,55,60,40,40,2,26,31,
+  5,32,30,30,30,30,2,26,2,1,
+  44,9,12,12,2,26,129,0,5,8,
+  18,6,17,84,104,114,111,116,116,108,
+  101,0,129,0,44,26,27,6,17,89,
+  97,119,0,129,0,4,73,14,6,17,
+  80,105,116,99,104,0,129,0,56,73,
+  12,6,17,82,111,108,108,0,67,4,
+  12,89,32,7,2,26,24 };
+```
+
+## Connection Settings
+
+In the RemoteXY app, set the connection type to "Bluetooth" and select your HC-05 module (usually named "HC-05" by default).
+
+Pairing code for HC-05 is typically "1234" unless you've changed it.
+
+## Usage Tips
+
+1. **Throttle Control**: Sliding up increases power to all motors
+2. **Yaw Control**: Sliding left/right rotates the drone
+3. **Pitch Control**: Sliding forward/backward tilts the drone forward/backward
+4. **Roll Control**: Sliding left/right tilts the drone left/right
+
+Always start with the throttle at minimum position before arming the drone. 
